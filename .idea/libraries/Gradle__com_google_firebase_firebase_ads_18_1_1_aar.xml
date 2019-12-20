@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.firebase:firebase-ads:18.1.1@aar" type="AndroidModuleLibraryType">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-ads-18.1.1.aar/733e18ba30cc0bfb3d9ab10562d54547/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

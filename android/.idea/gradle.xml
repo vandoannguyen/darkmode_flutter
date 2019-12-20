@@ -7,11 +7,12 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/admob_flutter-0.3.4/android" />
-            <option value="C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.0+9/android" />
-            <option value="C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.4+8/android" />
+            <option value="C:/src_flutter/flutter/.pub-cache/hosted/pub.dartlang.org/admob_flutter-0.3.4/android" />
+            <option value="C:/src_flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.0+9/android" />
+            <option value="C:/src_flutter/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.4+8/android" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/ratedialog" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

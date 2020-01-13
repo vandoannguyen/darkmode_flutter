@@ -78,21 +78,6 @@ class _HomePageState extends State<HomePage> implements BaseView {
           "Dark Mode",
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
         ),
-        actions: <Widget>[
-          GestureDetector(
-            onTap: () {
-              _presenter.rate();
-            },
-            child: Container(
-              height: 50,
-              width: 50,
-              child: Icon(
-                Icons.star,
-                color: Colors.orange,
-              ),
-            ),
-          ),
-        ],
       ),
       body: SafeArea(
         child: Column(

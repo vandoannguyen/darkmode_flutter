@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "538442810826",
+    "firebase_url": "https://darkmode-4917a.firebaseio.com",
+    "project_id": "darkmode-4917a",
+    "storage_bucket": "darkmode-4917a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538442810826:android:f2ea1cd23b85fda4f47b33",
+        "android_client_info": {
+          "package_name": "com.example.darkmode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538442810826-hs85pdqc4b8le3g5sif7gagftrj586bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOtiaY_zWc3uZiJwC13IMZVsABwbwdS04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538442810826-hs85pdqc4b8le3g5sif7gagftrj586bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

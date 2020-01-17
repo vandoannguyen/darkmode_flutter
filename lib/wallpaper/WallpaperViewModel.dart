@@ -1,0 +1,3 @@
+class WallpaperViewModel {
+  dynamic data = {};
+}

@@ -1,5 +1,9 @@
 admob_flutter=C:\\src_flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\admob_flutter-0.3.4\\
+cloud_firestore=C:\\src_flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore-0.11.0+2\\
 esys_flutter_share=C:\\src_flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\esys_flutter_share-1.0.2\\
 firebase_admob=C:\\src_flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_admob-0.9.0+9\\
+firebase_analytics=C:\\src_flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_analytics-5.0.6\\
+firebase_core=C:\\src_flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core-0.4.2+1\\
+firebase_storage=C:\\src_flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_storage-3.0.10\\
 path_provider=C:\\src_flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-1.5.0\\
 shared_preferences=C:\\src_flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences-0.5.4+8\\

@@ -11,7 +11,6 @@ import '../main.dart';
 class SettingScreen extends StatefulWidget {
   BannerAd mBanner;
   SettingScreen(this.mBanner);
-
   @override
   _SettingScreenState createState() => _SettingScreenState();
 }

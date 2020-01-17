@@ -66,6 +66,8 @@ class MyApp extends StatelessWidget {
     return ThemeData(
         brightness: Brightness.light,
         primarySwatch: Colors.blue,
+        tabBarTheme: TabBarTheme(
+            labelColor: Colors.black87, unselectedLabelColor: Colors.grey),
         appBarTheme: AppBarTheme(
             color: Colors.white,
             iconTheme: IconThemeData(color: Colors.black),

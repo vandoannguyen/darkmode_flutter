@@ -1,14 +1,12 @@
-import 'package:admob_flutter/admob_flutter.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:darkmode/BlocTheme/BlogTheme.dart';
 import 'package:darkmode/base/BaseView.dart';
 import 'package:darkmode/common/Common.dart';
-import 'package:darkmode/common/admob_ad_event.dart';
+import 'package:darkmode/faq/FAQView.dart';
 import 'package:darkmode/home/HomeViewModel.dart';
+import 'package:darkmode/wallpaper/Wallpaper.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 
-import '../main.dart';
 import 'HomePresenter.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,28 +28,6 @@ class _HomePageState extends State<HomePage> implements BaseView {
   @override
   void initState() {
     super.initState();
-    myBanner = BannerAd(
-      // Replace the testAdUnitId with an ad unit id from the AdMob dash.
-      // https://developers.google.com/admob/android/test-ads
-      // https://developers.google.com/admob/ios/test-ads
-      adUnitId: Common.BANNER_ADS,
-      size: AdSize.mediumRectangle,
-      targetingInfo: targetingInfo,
-      listener: (MobileAdEvent event) {
-        print("BannerAd event is $event");
-      },
-    );
-    myBanner
-      // typically this happens well before the ad is shown
-      ..load()
-      ..show(
-        // Positions the banner ad 60 pixels from the bottom of the screen
-        anchorOffset: 5,
-        // Positions the banner ad 10 pixels from the center of the screen to the right
-        horizontalCenterOffset: 0,
-        // Banner Position
-        anchorType: AnchorType.bottom,
-      );
   }
 
   @override
@@ -94,26 +70,13 @@ class _HomePageState extends State<HomePage> implements BaseView {
         ),
         body: Stack(
           children: <Widget>[
-            Visibility(
-              visible: isLoadingAds,
-              child: Container(
-                // padding: EdgeInsets.only(bottom: 180),
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width,
-                color: Colors.black38,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2.5,
-                  backgroundColor: Colors.transparent,
-                ),
-              ),
-            ),
-            SafeArea(
+            SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  Expanded(
+                  Container(
                     child: Stack(
                       children: <Widget>[
-                        SingleChildScrollView(
+                        Container(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
@@ -243,29 +206,94 @@ class _HomePageState extends State<HomePage> implements BaseView {
                                 ),
                               ),
                               Container(
-                                height: 50,
+                                height: 20,
                               ),
+                              Card(
+                                elevation: 4,
+                                child: Container(
+                                  padding: EdgeInsets.all(10),
+                                  height: height / 4,
+                                  width: width - 50,
+                                  child: Column(
+                                    children: <Widget>[
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        padding: EdgeInsets.all(5),
+                                        child: Text(
+                                          'App Supported:',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.blue,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: GridView.builder(
+                                          gridDelegate:
+                                              SliverGridDelegateWithFixedCrossAxisCount(
+                                                  crossAxisCount: 4),
+                                          itemBuilder: (contex, index) {
+                                            return Container(
+                                                width: 40,
+                                                height: 40,
+                                                padding: EdgeInsets.all(15),
+                                                child: Card(
+                                                  clipBehavior: Clip.antiAlias,
+                                                  child: Image.network(
+                                                    Common.supportApp[index]
+                                                        ["image"],
+                                                    fit: BoxFit.fill,
+                                                  ),
+                                                ));
+                                          },
+                                          itemCount: Common.supportApp.length,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  openFAQ(context);
+                                },
+                                child: Container(
+                                  color: Colors.transparent,
+                                  padding: EdgeInsets.all(15),
+                                  child: Text(
+                                    "Something not working ?",
+                                    style: TextStyle(
+                                        color: Colors.blue,
+                                        fontSize: 15,
+                                        fontStyle: FontStyle.italic),
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         ),
-                        Visibility(
-                          visible: isLoadingAds,
-                          child: Container(
-                            // padding: EdgeInsets.only(bottom: 180),
-                            alignment: Alignment.center,
-                            width: width,
-                            color: Colors.black38,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2.5,
-                              backgroundColor: Colors.transparent,
-                            ),
-                          ),
-                        )
                       ],
                     ),
                   ),
-                  bannerWidget(context, AdmobBannerSize.MEDIUM_RECTANGLE),
+//                  bannerWidget(context, AdmobBannerSize.MEDIUM_RECTANGLE),
                 ],
+              ),
+            ),
+            Visibility(
+              visible: isLoadingAds,
+              child: Container(
+                height: height,
+                // padding: EdgeInsets.only(bottom: 180),
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.black38,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.5,
+                  backgroundColor: Colors.transparent,
+                ),
               ),
             ),
           ],
@@ -291,24 +319,39 @@ class _HomePageState extends State<HomePage> implements BaseView {
       isLoadingAds = true;
     });
     _presenter.intentWallpaper(context, () {
-      setState(() {
-        isLoadingAds = false;
-      });
+      setState(
+        () {
+          isLoadingAds = false;
+        },
+      );
+    }, Wallpaper(() {}));
+  }
+
+  void openFAQ(BuildContext context) {
+    setState(() {
+      isLoadingAds = true;
     });
+    _presenter.intentWallpaper(context, () {
+      setState(
+        () {
+          isLoadingAds = false;
+        },
+      );
+    }, FAQView(() {}));
   }
 }
 
-Future<QuerySnapshot> getCategorySer() {
-  final databaseReference = Firestore.instance;
-  dynamic categories = {};
-  return databaseReference.collection("wallpaper").getDocuments();
-}
+//Future<QuerySnapshot> getCategorySer() {
+//  final databaseReference = Firestore.instance;
+//  dynamic categories = {};
+//  return databaseReference.collection("wallpaper").getDocuments();
+//}
 
-void _loadBanner(banner) {
-  print("loadBanner");
-  banner =
-      new BannerAd(adUnitId: Common.BANNER_ADS, size: AdSize.mediumRectangle);
-  banner
-    ..load()
-    ..show(anchorOffset: 10.0, horizontalCenterOffset: 0.0);
-}
+//void _loadBanner(banner) {
+//  print("loadBanner");
+//  banner =
+//      new BannerAd(adUnitId: Common.BANNER_ADS, size: AdSize.mediumRectangle);
+//  banner
+//    ..load()
+//    ..show(anchorOffset: 10.0, horizontalCenterOffset: 0.0);
+//}

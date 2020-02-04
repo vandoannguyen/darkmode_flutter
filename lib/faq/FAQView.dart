@@ -41,11 +41,22 @@ class FAQView extends StatelessWidget {
             child: Column(
           children: <Widget>[
             Expanded(
-              child: SingleChildScrollView(
-                child: Html(
-                  data: Common.htmlDetail,
-                  padding: EdgeInsets.all(15),
+              child: ListView.builder(
+                itemBuilder: (ctx, index) => Card(
+                  child: ExpansionTile(
+                    title: Html(
+                      data: Common.htmlDetail[index]['title'],
+                      padding: EdgeInsets.all(5),
+                    ),
+                    children: <Widget>[
+                      Html(
+                        data: Common.htmlDetail[index]['content'],
+                        padding: EdgeInsets.all(5),
+                      )
+                    ],
+                  ),
                 ),
+                itemCount: Common.htmlDetail.length,
               ),
             ),
             SizedBox(
@@ -53,7 +64,7 @@ class FAQView extends StatelessWidget {
             ),
             AdmobBanner(
               adUnitId: Common.BANNER_ADS,
-              adSize: AdmobBannerSize.MEDIUM_RECTANGLE,
+              adSize: AdmobBannerSize.LARGE_BANNER,
             )
           ],
         )),

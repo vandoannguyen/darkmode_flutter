@@ -127,14 +127,17 @@ class _WallpaperDetailState extends State<WallpaperDetail> {
                         callBack("Home");
                         Navigator.pop(context);
                       },
-                      child: Card(
-                        elevation: 5,
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: setWidth(),
-                          padding: EdgeInsets.all(10),
-                          child: Text("Home Screen"),
-                        ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                            border: Border.all(
+                                color: Colors.blue[300],
+                                width: 1,
+                                style: BorderStyle.solid)),
+                        alignment: Alignment.center,
+                        width: setWidth(),
+                        padding: EdgeInsets.all(10),
+                        child: Text("Home Screen"),
                       ),
                     ),
                     SizedBox(height: 10),
@@ -143,14 +146,17 @@ class _WallpaperDetailState extends State<WallpaperDetail> {
                         callBack("Both");
                         Navigator.pop(context);
                       },
-                      child: Card(
-                        elevation: 5,
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: setWidth(),
-                          padding: EdgeInsets.all(10),
-                          child: Text("Both"),
-                        ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                            border: Border.all(
+                                color: Colors.blue[300],
+                                width: 1,
+                                style: BorderStyle.solid)),
+                        alignment: Alignment.center,
+                        width: setWidth(),
+                        padding: EdgeInsets.all(10),
+                        child: Text("Both"),
                       ),
                     ),
                     SizedBox(height: 10),
@@ -159,14 +165,17 @@ class _WallpaperDetailState extends State<WallpaperDetail> {
                         callBack("Lock");
                         Navigator.pop(context);
                       },
-                      child: Card(
-                        elevation: 5,
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: setWidth(),
-                          padding: EdgeInsets.all(10),
-                          child: Text("Lock Screen"),
-                        ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                            border: Border.all(
+                                color: Colors.blue[300],
+                                width: 1,
+                                style: BorderStyle.solid)),
+                        alignment: Alignment.center,
+                        width: setWidth(),
+                        padding: EdgeInsets.all(10),
+                        child: Text("Lock Screen"),
                       ),
                     ),
                   ],

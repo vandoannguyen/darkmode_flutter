@@ -5,6 +5,7 @@ import 'package:darkmode/faq/FAQView.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mailer/flutter_mailer.dart';
 
 import '../main.dart';
 
@@ -35,7 +36,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 children: <Widget>[
                   GestureDetector(
                     onTap: () {
-                      CallNativeUtils.invokeMethod(method: "app_version");
+                      faqQuestion(context);
                     },
                     child: Container(
                       height: textHeight(),
@@ -44,14 +45,14 @@ class _SettingScreenState extends State<SettingScreen> {
                       child: Row(
                         children: <Widget>[
                           Icon(
-                            Icons.android,
+                            Icons.question_answer,
                           ),
                           SizedBox(
                             width: 10,
                           ),
                           Container(
                             child: Text(
-                              "App version",
+                              "Fast answer question (FAQ)",
                               style: textStyle(),
                             ),
                           )
@@ -128,7 +129,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      faqQuestion(context);
+                      feedBack();
                     },
                     child: Container(
                       height: textHeight(),
@@ -137,14 +138,45 @@ class _SettingScreenState extends State<SettingScreen> {
                       child: Row(
                         children: <Widget>[
                           Icon(
-                            Icons.question_answer,
+                            Icons.feedback,
                           ),
                           SizedBox(
                             width: 10,
                           ),
                           Container(
                             child: Text(
-                              "Fast answer question (FAQ)",
+                              "Feedback to us",
+                              style: textStyle(),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 0.5,
+                    color: Colors.grey,
+                    margin: EdgeInsets.only(left: 10, right: 10),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      CallNativeUtils.invokeMethod(method: "app_version");
+                    },
+                    child: Container(
+                      height: textHeight(),
+                      color: Colors.transparent,
+                      padding: EdgeInsets.all(10),
+                      child: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.android,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            child: Text(
+                              "App version",
                               style: textStyle(),
                             ),
                           )
@@ -206,7 +238,7 @@ class _SettingScreenState extends State<SettingScreen> {
           IntentAnimation.intentNomal(
               context: context,
               screen: FAQView(() {
-                loadBanner();
+//                loadBanner();
               }),
               option: IntentAnimationOption.RIGHT_TO_LEFT,
               duration: Duration(milliseconds: 400));
@@ -234,5 +266,30 @@ class _SettingScreenState extends State<SettingScreen> {
   void shareApp() {
     Share.text("Dark Mode And Night Mode", Common.APP_LINK, "text/plain");
   }
+
+  void feedBack() {
+//    _launchURL();
+//    print("demo");
+    final MailOptions mailOptions = MailOptions(
+      body: '',
+      subject: '',
+      recipients: [Common.MAIL_FEEDBACK],
+      isHTML: true,
+      bccRecipients: [],
+      ccRecipients: [],
+      attachments: [],
+    );
+
+    FlutterMailer.send(mailOptions);
+  }
+
+//  _launchURL() async {
+//    const url = 'https://flutter.dev';
+//    if (await canLaunch(url)) {
+//      await launch(url);
+//    } else {
+//      throw 'Could not launch $url';
+//    }
+//  }
 }
 //

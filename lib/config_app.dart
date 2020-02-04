@@ -4,5 +4,6 @@ var config_app = {
   "BANNER_ADS": "ca-app-pub-3940256099942544/6300978111",
   "tagetInforKeyWord ": ["MobileAdTargetingInfo", "MobileAdTargetingInfo"],
   "contentUrl ": "https://flutter.io",
-  "APP_LINK": "http://play.google.com/store/apps/details?id="
+  "APP_LINK": "http://play.google.com/store/apps/details?id=",
+  "MAIL_FEEDBACK": "tahanh.aib@gmail.com"
 };

@@ -6,7 +6,6 @@ import 'package:darkmode/common/intent_utils.dart';
 import 'package:darkmode/home/HomeViewModel.dart';
 import 'package:darkmode/main.dart';
 import 'package:darkmode/setting/SettingScreen.dart';
-import 'package:darkmode/wallpaper/Wallpaper.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -62,7 +61,7 @@ class HomePresenter implements BasePresenter {
         duration: Duration(milliseconds: 400));
   }
 
-  void intentWallpaper(BuildContext context, callBack) {
+  void intentWallpaper(BuildContext context, callBack, Widget screen) {
     InterstitialAd myInterstitial = InterstitialAd(
       adUnitId: Common.INTER_ADS,
       targetingInfo: targetingInfo,
@@ -74,7 +73,7 @@ class HomePresenter implements BasePresenter {
         if (event == MobileAdEvent.closed) {
           IntentAnimation.intentNomal(
                   context: context,
-                  screen: Wallpaper(() {}),
+                  screen: screen,
                   option: IntentAnimationOption.RIGHT_TO_LEFT,
                   duration: Duration(milliseconds: 500))
               .then((value) {
